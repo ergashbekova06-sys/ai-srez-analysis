@@ -184,7 +184,7 @@ if uploaded:
             else:
                 return '#d62728'
 
-        st.subheader('📈 Процент качества (цветная)')
+        st.subheader('📈 Процент качества')
         colors_q = [color_quality(x) for x in res['% качества']]
         fig_q, ax_q = plt.subplots(figsize=(8,4))
         bars = ax_q.bar(res['Работа'], res['% качества'], color=colors_q)
@@ -197,7 +197,7 @@ if uploaded:
         st.pyplot(fig_q)
 
         st.markdown('<br>', unsafe_allow_html=True)
-        st.subheader('📈 Процент успеваемости (цветная)')
+        st.subheader('📈 Процент успеваемости')
         colors_p = [color_pass(x) for x in res['% успеваемости']]
         fig_p, ax_p = plt.subplots(figsize=(8,4))
         bars2 = ax_p.bar(res['Работа'], res['% успеваемости'], color=colors_p)
@@ -239,7 +239,7 @@ if uploaded:
                                     names.append(str(v))
                         students_by_level[key] = ', '.join(names)
         if students_by_level:
-            st.subheader('👥 Ученики по уровням (если найдены)')
+            st.subheader('👥 Ученики по уровням')
             for k,v in students_by_level.items():
                 st.write(f"**{k}**: {v}")
 
@@ -328,4 +328,4 @@ if uploaded:
             pdf_bytes = create_pdf_bytes(res, fig_q, fig_p, analysis, students_by_level)
             st.download_button('Скачать PDF', data=pdf_bytes, file_name='report_SOR_SOCH.pdf', mime='application/pdf')
 
-        st.info('Готово — попробуйте нажать \"Сформировать PDF\". Если в PDF кириллица не отображается, загрузите DejaVuSans.ttf рядом с app.py или укажите другой TTF-шрифт.')
+      
