@@ -95,8 +95,7 @@ if uploaded:
         else:
             analysis.append(f"✅ {work}: высокий уровень ({q:.0f}%).")
 
-    st.write("
-".join(analysis))
+    st.write("".join(analysis))
 
     # --- 5. Попытка извлечь перечень учащихся по уровням (если в файле есть) ---
     students_by_level = {}
